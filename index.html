@@ -11,61 +11,21 @@
 *{box-sizing:border-box;margin:0;padding:0}
 body{background:var(--bg);color:var(--tx);font-family:var(--sans);font-weight:300;min-height:100vh;line-height:1.6}
 a{color:var(--ac2);text-decoration:none}
-
 .hdr{background:var(--bg2);border-bottom:1px solid var(--bdr);padding:0 1.5rem;display:flex;align-items:center;justify-content:space-between;height:54px;position:sticky;top:0;z-index:100;gap:1rem}
 .hdr-title{font-size:12px;font-weight:500;letter-spacing:.08em;color:var(--tx2);text-transform:uppercase;white-space:nowrap}
 .dot{width:7px;height:7px;border-radius:50%;background:var(--gn);display:inline-block;margin-right:7px;animation:pulse 2s infinite}
-
 .tabs{display:flex;gap:2px;background:var(--bg3);border-radius:10px;padding:3px;margin:1.25rem 0 1rem}
 .tab{flex:1;text-align:center;padding:8px 4px;font-size:12px;font-weight:500;border-radius:8px;cursor:pointer;transition:all .15s;color:var(--tx3)}
 .tab.on{background:var(--bg2);color:var(--tx);box-shadow:0 1px 4px rgba(0,0,0,.3)}
-
 .btn{border-radius:8px;font-family:var(--sans);font-size:13px;font-weight:500;cursor:pointer;padding:9px 18px;transition:all .15s;white-space:nowrap;display:inline-flex;align-items:center;gap:6px;border:none;line-height:1}
-.btn-p{background:var(--ac);color:#fff}.btn-p:hover{background:#4a6ee8}.btn-p:active{transform:scale(.97)}.btn-p:disabled{opacity:.5;cursor:not-allowed}
+.btn-p{background:var(--ac);color:#fff}.btn-p:hover{background:#4a6ee8}.btn-p:active{transform:scale(.97)}
 .btn-g{background:transparent;color:var(--tx2);border:1px solid var(--bdr2)!important}.btn-g:hover{border-color:var(--ac2)!important;color:var(--tx)}
 .btn-rd{background:rgba(255,107,107,.12);color:var(--rd);border:1px solid rgba(255,107,107,.2)!important}
 .btn-sm{padding:6px 12px;font-size:12px}
-.spinner{width:13px;height:13px;border:2px solid rgba(255,255,255,.3);border-top-color:#fff;border-radius:50%;animation:spin .7s linear infinite;flex-shrink:0}
-
 .wrap{max-width:1080px;margin:0 auto;padding:0 1.25rem 2rem}
 .card{background:var(--bg2);border:1px solid var(--bdr);border-radius:12px;padding:1.1rem 1.25rem;margin-bottom:1rem}
 .card-title{font-size:11px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--tx3);margin-bottom:.9rem}
 .sec{font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--tx3);margin-bottom:.65rem;padding-bottom:.45rem;border-bottom:1px solid var(--bdr);margin-top:1.25rem}
-
-/* ── ブックマークレット設定パネル ── */
-.setup-panel{background:var(--bg2);border:1px solid var(--bdr);border-radius:12px;overflow:hidden;margin-bottom:1rem}
-.setup-header{padding:.9rem 1.25rem;border-bottom:1px solid var(--bdr);display:flex;align-items:center;justify-content:space-between;cursor:pointer;user-select:none}
-.setup-header h3{font-size:12px;font-weight:500;color:var(--tx2)}
-.setup-header .toggle{font-size:11px;color:var(--tx3)}
-.setup-body{padding:1.1rem 1.25rem;display:none}
-.setup-body.open{display:block}
-
-.step-row{display:flex;gap:12px;align-items:flex-start;margin-bottom:1rem}
-.step-num{width:22px;height:22px;border-radius:50%;background:var(--ac);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:#fff;flex-shrink:0;margin-top:2px}
-.step-text{font-size:12px;color:var(--tx2);line-height:1.7;flex:1}
-.step-text strong{color:var(--tx);font-weight:500}
-
-/* ブックマークボタン（ドラッグ用） */
-.bm-drag-area{display:flex;gap:10px;flex-wrap:wrap;margin:.75rem 0}
-.bm-drag-btn{display:inline-flex;align-items:center;gap:7px;padding:10px 16px;border-radius:8px;font-size:13px;font-weight:500;text-decoration:none;cursor:grab;transition:all .15s;user-select:none}
-.bm-drag-btn:active{cursor:grabbing}
-.bm-drag-btn.blue{background:rgba(91,127,255,.15);color:var(--ac2);border:1.5px dashed rgba(91,127,255,.4)}
-.bm-drag-btn.blue:hover{background:rgba(91,127,255,.25);border-color:var(--ac2)}
-.bm-drag-note{font-size:11px;color:var(--tx3);padding:.5rem .75rem;background:var(--bg3);border-radius:6px;line-height:1.8}
-
-/* ── 取込パネル ── */
-.import-panel{background:linear-gradient(135deg,rgba(61,214,140,.07),rgba(61,214,140,.02));border:1px solid rgba(61,214,140,.2);border-radius:12px;padding:1rem 1.25rem;margin-bottom:1rem}
-.import-panel h3{font-size:12px;font-weight:500;color:var(--tx);margin-bottom:.75rem;display:flex;align-items:center;gap:7px}
-.bm-status-row{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:.75rem}
-.bm-stat{background:var(--bg3);border:1px solid var(--bdr2);border-radius:8px;padding:.5rem .9rem;font-size:12px;font-family:var(--mono);color:var(--tx3);flex:1;min-width:100px}
-.bm-stat .val{font-size:18px;font-weight:500;color:var(--tx);display:block;margin-top:2px}
-.bm-stat.ready .val{color:var(--gn)}
-.bm-stat.lbl-s{font-size:10px;text-transform:uppercase;letter-spacing:.04em;margin-bottom:2px}
-
-.status{font-size:11px;font-family:var(--mono);min-height:16px;margin-top:.5rem}
-.ok{color:var(--gn)}.err{color:var(--rd)}.info{color:var(--ac2)}.warn{color:var(--am)}
-
-/* ── Metrics ── */
 .metrics{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:10px;margin-bottom:1.25rem}
 .mc{background:var(--bg2);border:1px solid var(--bdr);border-radius:12px;padding:1rem 1.2rem;position:relative;overflow:hidden}
 .mc::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--ca,var(--ac)),transparent)}
@@ -75,12 +35,10 @@ a{color:var(--ac2);text-decoration:none}
 .mc-unit{font-size:11px;color:var(--tx3);margin-left:3px}
 .mc-sub{font-size:11px;color:var(--tx3);margin-top:4px}
 .up{color:var(--gn)}.dn{color:var(--rd)}
-
 .charts2{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:1.25rem}
 @media(max-width:640px){.charts2{grid-template-columns:1fr}}
 .cc{background:var(--bg2);border:1px solid var(--bdr);border-radius:12px;padding:1.2rem}
 .cc-sub{font-size:10px;color:var(--tx3);margin-bottom:.7rem;text-transform:uppercase;letter-spacing:.06em}
-
 .tcard{background:var(--bg2);border:1px solid var(--bdr);border-radius:12px;overflow:hidden;margin-bottom:1rem}
 .ttbar{padding:.8rem 1.2rem;border-bottom:1px solid var(--bdr);display:flex;align-items:center;gap:8px;flex-wrap:wrap}
 .ttbar select,.ttbar input{background:var(--bg3);border:1px solid var(--bdr2);border-radius:6px;color:var(--tx);font-size:12px;padding:5px 9px;outline:none}
@@ -100,7 +58,6 @@ td{padding:8px 13px;color:var(--tx2);vertical-align:middle}
 .cup-F,.cup-E{background:rgba(91,127,255,.15);color:#7c9fff}
 .cup-D,.cup-C,.cup-B{background:var(--bg4);color:var(--tx3)}
 .ntag{font-size:9px;padding:2px 6px;border-radius:10px;background:rgba(61,214,140,.1);color:var(--gn);border:1px solid rgba(61,214,140,.2);margin-left:5px;vertical-align:middle}
-
 .month-sel-row{display:flex;gap:8px;align-items:center;margin-bottom:1rem;flex-wrap:wrap}
 .report-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:1rem}
 @media(max-width:500px){.report-grid{grid-template-columns:1fr}}
@@ -108,19 +65,13 @@ td{padding:8px 13px;color:var(--tx2);vertical-align:middle}
 .rstat-lbl{font-size:10px;color:var(--tx3);letter-spacing:.05em;text-transform:uppercase;margin-bottom:4px}
 .rstat-val{font-family:var(--mono);font-size:22px;font-weight:500;color:var(--tx)}
 .rstat-sub{font-size:11px;color:var(--tx3);margin-top:3px}
-
-.prog-wrap{width:100%;background:var(--bg4);border-radius:4px;height:3px;overflow:hidden;display:none;margin-top:.5rem}
-.prog-wrap.show{display:block}
-.prog-bar{height:100%;background:var(--ac);border-radius:4px;transition:width .4s ease}
-
 .pager{display:flex;align-items:center;gap:5px;padding:.75rem 1.2rem;border-top:1px solid var(--bdr);justify-content:center;flex-wrap:wrap}
 .pg{background:var(--bg3);border:1px solid var(--bdr);border-radius:6px;color:var(--tx2);font-size:12px;padding:4px 9px;cursor:pointer;transition:border-color .12s,color .12s}
 .pg:hover,.pg.on{border-color:var(--ac);color:var(--ac)}.pg:disabled{opacity:.35;cursor:default}
 .pi{font-family:var(--mono);font-size:11px;color:var(--tx3);margin:0 3px}
-
+.loading{text-align:center;padding:3rem;color:var(--tx3);font-size:13px}
 footer{border-top:1px solid var(--bdr);padding:1rem 1.5rem;font-size:11px;color:var(--tx3);font-family:var(--mono);display:flex;justify-content:space-between;flex-wrap:wrap;gap:6px}
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
-@keyframes spin{to{transform:rotate(360deg)}}
 @keyframes fadein{from{opacity:0;transform:translateY(3px)}to{opacity:1;transform:translateY(0)}}
 .fade{animation:fadein .25s ease forwards}
 </style>
@@ -129,7 +80,7 @@ footer{border-top:1px solid var(--bdr);padding:1rem 1.5rem;font-size:11px;color:
 
 <header class="hdr">
   <div class="hdr-title"><span class="dot"></span>ワンモア奥様 西船橋店 — 分析ダッシュボード</div>
-  <div style="font-family:var(--mono);font-size:11px;color:var(--tx3)" id="hdrInfo">—</div>
+  <div style="font-family:var(--mono);font-size:11px;color:var(--tx3)" id="hdrInfo">読込中...</div>
 </header>
 
 <div class="wrap">
@@ -142,48 +93,21 @@ footer{border-top:1px solid var(--bdr);padding:1rem 1.5rem;font-size:11px;color:
 
   <!-- ══ 日次記録 ══ -->
   <div id="tab-daily">
-
-    <!-- APIキー設定 -->
-    <div class="card" id="apiKeyPanel">
-      <div class="card-title" style="display:flex;align-items:center;justify-content:space-between">
-        <span>🔑 Anthropic APIキー設定 <span id="keyBadge" style="display:none;font-size:10px;padding:2px 8px;border-radius:10px;background:rgba(61,214,140,.12);color:var(--gn);border:1px solid rgba(61,214,140,.25);margin-left:6px">✓ 設定済み</span></span>
-        <a href="https://console.anthropic.com/" target="_blank" rel="noopener" style="font-size:11px;color:var(--ac2)">取得はこちら →</a>
+    <div class="card">
+      <div class="card-title">更新方法</div>
+      <div style="font-size:12px;color:var(--tx2);line-height:1.9">
+        親機（更新担当PC）で <a href="https://onemore-nishifuna.com/girls" target="_blank" rel="noopener">girlsページ</a> を開き、画面右下の <strong style="color:var(--gn)">「📊 在籍・出勤を記録」</strong> ボタンを押すと自動でデータが更新されます。
       </div>
-      <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center">
-        <input type="password" id="apiKeyInput" placeholder="sk-ant-api03-..." autocomplete="off"
-          style="flex:1;min-width:200px;background:var(--bg3);border:1px solid var(--bdr2);border-radius:8px;color:var(--tx);font-family:var(--mono);font-size:12px;padding:8px 12px;outline:none">
-        <button class="btn btn-g btn-sm" onclick="saveApiKey()">保存</button>
-        <button class="btn btn-rd btn-sm" onclick="clearApiKey()">削除</button>
-      </div>
-      <div style="font-size:11px;color:var(--tx3);margin-top:6px">APIキーはこのブラウザのlocalStorageにのみ保存されます。一度設定すれば次回から不要です。</div>
-    </div>
-
-    <!-- ワンクリック取得パネル -->
-    <div class="import-panel">
-      <h3>
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="color:var(--gn)"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg>
-        ワンクリック取得・記録
-      </h3>
-      <div class="bm-status-row" id="bmStatusRow">
-        <div class="bm-stat" id="bmStatTotal"><div class="lbl-s">総在籍数</div><span class="val">—</span></div>
-        <div class="bm-stat" id="bmStatWork"><div class="lbl-s">本日出勤数</div><span class="val">—</span></div>
-        <div class="bm-stat" id="bmStatDate"><div class="lbl-s">日付</div><span class="val" style="font-size:13px">—</span></div>
-      </div>
-      <!-- プログレスバー -->
-      <div id="fetchProg" style="width:100%;background:var(--bg4);border-radius:4px;height:3px;overflow:hidden;display:none;margin-bottom:.6rem">
-        <div id="fetchProgBar" style="height:100%;background:var(--ac);border-radius:4px;transition:width .4s ease;width:0%"></div>
-      </div>
-      <div style="display:flex;gap:8px;flex-wrap:wrap">
-        <button class="btn btn-p" id="btnFetch" onclick="fetchAndSave()">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg>
-          今日のデータを取得して記録
+      <div style="display:flex;gap:8px;margin-top:.75rem;flex-wrap:wrap">
+        <button class="btn btn-p" onclick="loadData()">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg>
+          最新データを読み込む
         </button>
         <button class="btn btn-g btn-sm" onclick="exportDailyCSV()">CSV出力</button>
       </div>
-      <div class="status" id="dailyStatus"><span class="info">● APIキーを設定してボタンを押すだけで在籍数・出勤数を自動記録します</span></div>
+      <div style="font-size:11px;color:var(--tx3);font-family:var(--mono);margin-top:.5rem" id="loadStatus">● データを読み込んでいます...</div>
     </div>
 
-    <!-- 履歴 -->
     <div class="sec" style="margin-top:.25rem">記録履歴</div>
     <div class="tcard">
       <div class="ttbar">
@@ -192,8 +116,8 @@ footer{border-top:1px solid var(--bdr);padding:1rem 1.5rem;font-size:11px;color:
       </div>
       <div class="tscroll">
         <table>
-          <thead><tr><th>日付</th><th>曜日</th><th>総在籍</th><th>出勤数</th><th>出勤率</th><th></th></tr></thead>
-          <tbody id="dailyTbody"></tbody>
+          <thead><tr><th>日付</th><th>曜日</th><th>総在籍</th><th>出勤数</th><th>出勤率</th></tr></thead>
+          <tbody id="dailyTbody"><tr><td colspan="5" class="loading">読込中...</td></tr></tbody>
         </table>
       </div>
       <div class="pager" id="dailyPager"></div>
@@ -207,7 +131,7 @@ footer{border-top:1px solid var(--bdr);padding:1rem 1.5rem;font-size:11px;color:
       <button class="btn btn-p" onclick="renderReport()">📊 レポート表示</button>
       <button class="btn btn-g btn-sm" onclick="exportMonthCSV()">CSV出力</button>
     </div>
-    <div id="reportContent"><div style="text-align:center;padding:3rem;color:var(--tx3);font-size:13px">月を選んでください</div></div>
+    <div id="reportContent"><div class="loading">月を選んでください</div></div>
   </div>
 
   <!-- ══ 入店概要 ══ -->
@@ -217,7 +141,7 @@ footer{border-top:1px solid var(--bdr);padding:1rem 1.5rem;font-size:11px;color:
     <div class="cc" style="margin-bottom:1.25rem"><div style="position:relative;height:200px"><canvas id="cTrend"></canvas></div></div>
     <div class="charts2">
       <div class="cc"><div class="cc-sub">月別平均出勤率</div><div style="position:relative;height:160px"><canvas id="cRate"></canvas></div></div>
-      <div class="cc"><div class="cc-sub">カップ別分布（入店者）</div><div style="position:relative;height:160px"><canvas id="cCup"></canvas></div></div>
+      <div class="cc"><div class="cc-sub">カップ別分布</div><div style="position:relative;height:160px"><canvas id="cCup"></canvas></div></div>
     </div>
     <div class="sec">年齢帯（入店者）</div>
     <div id="ageGrid" style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:1.25rem"></div>
@@ -225,29 +149,6 @@ footer{border-top:1px solid var(--bdr);padding:1rem 1.5rem;font-size:11px;color:
 
   <!-- ══ 入店者 ══ -->
   <div id="tab-casts" style="display:none">
-    <div class="card">
-      <div class="card-title">新着入店者を取得（ブックマークレット）</div>
-
-      <!-- newfaceページ用ブックマークレット -->
-      <div style="margin-bottom:.75rem">
-        <a class="bm-drag-btn blue"
-           href="javascript:(function(){var links=[...document.querySelectorAll('a[href*=\'girlinfo\']')];var results=[];var seen=new Set();links.forEach(function(a){var href=a.getAttribute('href');var idM=href.match(/id=(\d+)/);var textM=a.textContent.match(/([\d]{4}-[\d]{2}-[\d]{2})入店\s*(.+)/);if(!idM||!textM)return;var url=href.startsWith('http')?href:'https://onemore-nishifuna.com/'+href.replace(/^\//,'');var date=textM[1].trim();var name=textM[2].trim();var key=date+'_'+name;if(seen.has(key))return;seen.add(key);var parent=a.closest('li')||a.parentElement;var block=parent?parent.innerText:'';var ageM=block.match(/[\(（](\d+)[\)）]/);var specM=block.match(/T[.\s]*(\d+)[^\dA-Z]*B[.\s]*(\d+)[\s\S]{0,5}[\(（]([A-Z])[\)）][^\d]*W[.\s]*(\d+)[^\d]*H[.\s]*(\d+)/);if(specM){results.push({date:date,name:name,age:ageM?parseInt(ageM[1]):0,h:parseInt(specM[1]),b:parseInt(specM[2]),cup:specM[3],w:parseInt(specM[4]),hip:parseInt(specM[5]),url:url});}});if(!results.length){alert('newfaceページ(https://onemore-nishifuna.com/newface)で実行してください');return;}localStorage.setItem('nishifuna_nf',JSON.stringify(results));alert('✅ '+results.length+'件取得\nダッシュボードの「入店者」タブで「NF取込」を押してください');})();"
-           draggable="true" style="display:inline-flex">
-          🆕 西船橋 新人取得
-        </a>
-      </div>
-      <div class="bm-drag-note" style="margin-bottom:.75rem">
-        💡 <a href="https://onemore-nishifuna.com/newface" target="_blank" rel="noopener">新人情報ページ</a>を開いて「🆕 西船橋 新人取得」ブックマークをクリック → ダッシュボードに戻って「NF取込」を押す
-      </div>
-
-      <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:.5rem">
-        <button class="btn btn-p" id="btnNFImport" onclick="importNF()">NF取込</button>
-        <button class="btn btn-rd btn-sm" onclick="clearCasts()">初期化</button>
-        <button class="btn btn-g btn-sm" onclick="exportCastCSV()">CSV出力</button>
-      </div>
-      <div class="status" id="castStatus"><span class="info">● newfaceページでブックマークを押した後「NF取込」を押してください</span></div>
-    </div>
-
     <div class="tcard">
       <div class="ttbar">
         <input type="text" id="castSrch" placeholder="名前で検索..." oninput="filtCasts()">
@@ -257,12 +158,13 @@ footer{border-top:1px solid var(--bdr);padding:1rem 1.5rem;font-size:11px;color:
           <option value="aa">年齢 若い順</option>
           <option value="ad">年齢 高い順</option>
         </select>
+        <button class="btn btn-g btn-sm" onclick="exportCastCSV()">CSV出力</button>
         <span class="tcnt" id="castCnt">— 件</span>
       </div>
       <div class="tscroll">
         <table>
           <thead><tr><th>入店日</th><th>名前</th><th>年齢</th><th>身長</th><th>バスト</th><th>W</th><th>H</th><th>プロフィール</th></tr></thead>
-          <tbody id="castTbody"></tbody>
+          <tbody id="castTbody"><tr><td colspan="8" class="loading">読込中...</td></tr></tbody>
         </table>
       </div>
       <div class="pager" id="castPager"></div>
@@ -276,146 +178,29 @@ footer{border-top:1px solid var(--bdr);padding:1rem 1.5rem;font-size:11px;color:
 </footer>
 
 <script>
-const SK_DAILY='nishifuna_daily_v2', SK_CASTS='nishifuna_casts_v1';
-const SK_BM='nishifuna_bm', SK_NF='nishifuna_nf';
-const DOW=['日','月','火','水','木','金','土'], CS=20;
-
-const SEED_CASTS=[
-  {date:"2026-05-18",name:"さち",  age:43,h:152,b:93, cup:"G",w:59,hip:90,url:"https://onemore-nishifuna.com/girlinfo.php?id=8182"},
-  {date:"2026-05-10",name:"もみじ",age:27,h:150,b:89, cup:"F",w:58,hip:87,url:"https://onemore-nishifuna.com/girlinfo.php?id=8125"},
-  {date:"2026-05-09",name:"ここみ",age:32,h:148,b:85, cup:"D",w:58,hip:86,url:"https://onemore-nishifuna.com/girlinfo.php?id=8122"},
-  {date:"2026-05-02",name:"こはる",age:32,h:150,b:93, cup:"H",w:59,hip:89,url:"https://onemore-nishifuna.com/girlinfo.php?id=8094"},
-  {date:"2026-04-29",name:"みずき",age:44,h:160,b:85, cup:"D",w:59,hip:88,url:"https://onemore-nishifuna.com/girlinfo.php?id=8084"},
-  {date:"2026-04-28",name:"なほ",  age:38,h:164,b:92, cup:"G",w:57,hip:88,url:"https://onemore-nishifuna.com/girlinfo.php?id=8072"},
-  {date:"2026-04-28",name:"ここ",  age:27,h:155,b:82, cup:"C",w:55,hip:84,url:"https://onemore-nishifuna.com/girlinfo.php?id=8085"},
-  {date:"2026-04-25",name:"まどか",age:25,h:157,b:86, cup:"E",w:58,hip:88,url:"https://onemore-nishifuna.com/girlinfo.php?id=8057"},
-  {date:"2026-04-22",name:"ゆずは",age:29,h:149,b:90, cup:"F",w:61,hip:93,url:"https://onemore-nishifuna.com/girlinfo.php?id=8041"},
-  {date:"2026-04-11",name:"さとみ",age:32,h:159,b:84, cup:"D",w:56,hip:86,url:"https://onemore-nishifuna.com/girlinfo.php?id=5991"},
-  {date:"2026-04-08",name:"あお",  age:25,h:147,b:86, cup:"E",w:58,hip:87,url:"https://onemore-nishifuna.com/girlinfo.php?id=7944"},
-  {date:"2026-04-07",name:"りょう",age:39,h:156,b:86, cup:"E",w:56,hip:87,url:"https://onemore-nishifuna.com/girlinfo.php?id=7932"},
-  {date:"2026-04-05",name:"ゆり",  age:26,h:157,b:90, cup:"G",w:57,hip:87,url:"https://onemore-nishifuna.com/girlinfo.php?id=7903"},
-  {date:"2026-04-01",name:"すず",  age:26,h:167,b:85, cup:"C",w:59,hip:86,url:"https://onemore-nishifuna.com/girlinfo.php?id=7865"},
-  {date:"2026-03-30",name:"うみ",  age:41,h:152,b:100,cup:"I",w:60,hip:91,url:"https://onemore-nishifuna.com/girlinfo.php?id=7834"},
-  {date:"2026-03-19",name:"いの",  age:26,h:160,b:85, cup:"D",w:60,hip:86,url:"https://onemore-nishifuna.com/girlinfo.php?id=7772"},
-  {date:"2026-03-17",name:"じゅな",age:32,h:156,b:85, cup:"D",w:59,hip:86,url:"https://onemore-nishifuna.com/girlinfo.php?id=7760"},
-  {date:"2026-03-15",name:"りんか",age:31,h:153,b:87, cup:"E",w:58,hip:88,url:"https://onemore-nishifuna.com/girlinfo.php?id=7752"},
-  {date:"2026-03-06",name:"まりあ",age:25,h:157,b:89, cup:"G",w:57,hip:87,url:"https://onemore-nishifuna.com/girlinfo.php?id=7644"},
-  {date:"2026-03-02",name:"ますみ",age:33,h:153,b:92, cup:"G",w:58,hip:88,url:"https://onemore-nishifuna.com/girlinfo.php?id=7603"},
-  {date:"2026-03-01",name:"りほ",  age:45,h:161,b:103,cup:"H",w:61,hip:94,url:"https://onemore-nishifuna.com/girlinfo.php?id=7597"},
-  {date:"2026-02-26",name:"いおり",age:27,h:156,b:85, cup:"D",w:57,hip:87,url:"https://onemore-nishifuna.com/girlinfo.php?id=7567"},
-  {date:"2026-02-25",name:"ゆに",  age:39,h:162,b:86, cup:"E",w:57,hip:87,url:"https://onemore-nishifuna.com/girlinfo.php?id=7566"},
-  {date:"2026-02-22",name:"けい",  age:32,h:154,b:95, cup:"H",w:59,hip:88,url:"https://onemore-nishifuna.com/girlinfo.php?id=7549"},
-  {date:"2026-02-18",name:"れの",  age:21,h:154,b:88, cup:"E",w:60,hip:91,url:"https://onemore-nishifuna.com/girlinfo.php?id=7533"},
-  {date:"2026-02-07",name:"ひびき",age:32,h:150,b:87, cup:"F",w:59,hip:88,url:"https://onemore-nishifuna.com/girlinfo.php?id=7473"},
-  {date:"2026-02-04",name:"みう",  age:25,h:156,b:85, cup:"F",w:57,hip:86,url:"https://onemore-nishifuna.com/girlinfo.php?id=7459"},
-  {date:"2026-02-01",name:"ことね",age:22,h:158,b:85, cup:"E",w:58,hip:87,url:"https://onemore-nishifuna.com/girlinfo.php?id=7437"},
-  {date:"2026-01-31",name:"なな",  age:24,h:159,b:87, cup:"F",w:57,hip:85,url:"https://onemore-nishifuna.com/girlinfo.php?id=7434"},
-  {date:"2026-01-26",name:"みこ",  age:26,h:156,b:85, cup:"E",w:58,hip:88,url:"https://onemore-nishifuna.com/girlinfo.php?id=7420"},
-];
+const REPO = 'jsection1106-dotcom/nf-a8x3k2';
+const DATA_URL = `https://raw.githubusercontent.com/${REPO}/main/data.json`;
+const DOW = ['日','月','火','水','木','金','土'];
+const CS = 20;
 
 let dailyData=[], castsData=[], filtCastsData=[], castPg=1, dailyFiltData=[], dailyPg=1;
 let trendChart=null, rateChart=null, cupChart=null;
 
-function loadAll(){
-  try{const s=localStorage.getItem(SK_DAILY);if(s)dailyData=JSON.parse(s);}catch(e){}
-  try{const s=localStorage.getItem(SK_CASTS);if(s)castsData=JSON.parse(s);}catch(e){}
-}
-function saveDaily(){try{localStorage.setItem(SK_DAILY,JSON.stringify(dailyData));}catch(e){}}
-function saveCasts(){try{localStorage.setItem(SK_CASTS,JSON.stringify(castsData));}catch(e){}}
-function mergeCasts(arr){
-  const ks=new Set(castsData.map(d=>d.date+'_'+d.name)),add=[];
-  for(const e of arr){const k=e.date+'_'+e.name;if(!ks.has(k)){castsData.push(e);ks.add(k);add.push(e);}else if(e.url){const x=castsData.find(d=>d.date+'_'+d.name===k);if(x&&!x.url)x.url=e.url;}}
-  castsData.sort((a,b)=>b.date.localeCompare(a.date));return add;
-}
-
-// ── APIキー管理 ──
-const SK_KEY='nishifuna_apikey';
-function saveApiKey(){
-  const v=document.getElementById('apiKeyInput').value.trim();
-  if(!v.startsWith('sk-ant-')){ss('dailyStatus','err','● 正しいAPIキーを入力してください（sk-ant-...）');return;}
-  localStorage.setItem(SK_KEY,v);
-  document.getElementById('apiKeyInput').value='';
-  document.getElementById('keyBadge').style.display='inline';
-  ss('dailyStatus','ok','● APIキーを保存しました。ボタンを押せば自動取得できます');
-}
-function clearApiKey(){
-  localStorage.removeItem(SK_KEY);
-  document.getElementById('keyBadge').style.display='none';
-  ss('dailyStatus','info','● APIキーを削除しました');
-}
-function getApiKey(){return localStorage.getItem(SK_KEY)||'';}
-
-// ── ワンクリック取得・記録 ──
-function setProg(pct,hide=false){
-  const w=document.getElementById('fetchProg'),b=document.getElementById('fetchProgBar');
-  if(hide){w.style.display='none';b.style.width='0%';return;}
-  w.style.display='block';b.style.width=pct+'%';
-}
-function updateBMUI(d){
-  const st=document.getElementById('bmStatTotal'),sw=document.getElementById('bmStatWork'),sd=document.getElementById('bmStatDate');
-  if(!d){
-    st.innerHTML='<div class="lbl-s">総在籍数</div><span class="val">—</span>';st.classList.remove('ready');
-    sw.innerHTML='<div class="lbl-s">本日出勤数</div><span class="val">—</span>';sw.classList.remove('ready');
-    sd.innerHTML='<div class="lbl-s">日付</div><span class="val" style="font-size:13px">—</span>';
-    return;
-  }
-  st.innerHTML=`<div class="lbl-s">総在籍数</div><span class="val">${d.total??'—'}</span>`;st.classList.add('ready');
-  sw.innerHTML=`<div class="lbl-s">本日出勤数</div><span class="val">${d.working??'—'}</span>`;sw.classList.add('ready');
-  sd.innerHTML=`<div class="lbl-s">日付</div><span class="val" style="font-size:13px">${d.date||'—'}</span>`;
-}
-
-async function fetchAndSave(){
-  const key=getApiKey();
-  if(!key){ss('dailyStatus','err','● APIキーを設定してください');return;}
-  const btn=document.getElementById('btnFetch');
-  btn.disabled=true;
-  btn.innerHTML='<span style="width:13px;height:13px;border:2px solid rgba(255,255,255,.3);border-top-color:#fff;border-radius:50%;animation:spin .7s linear infinite;display:inline-block"></span> 取得中...';
-  setProg(20);
-  ss('dailyStatus','info','● Claude APIでデータ取得中（10〜20秒）...');
+// ── データ読込（GitHub raw） ──
+async function loadData(){
+  document.getElementById('loadStatus').textContent='● データを取得中...';
   try{
-    const res=await fetch('https://api.anthropic.com/v1/messages',{
-      method:'POST',
-      headers:{
-        'Content-Type':'application/json',
-        'x-api-key':key,
-        'anthropic-version':'2023-06-01',
-        'anthropic-dangerous-direct-browser-access':'true'
-      },
-      body:JSON.stringify({
-        model:'claude-sonnet-4-20250514',
-        max_tokens:256,
-        tools:[{type:'web_search_20250305',name:'web_search'}],
-        messages:[{role:'user',content:`https://onemore-nishifuna.com/girls を取得して、次の2つの数値だけをJSON形式で返してください（説明不要）。
-- total: そのページ内で「girlinfo.php?id=」が出現する回数（＝総在籍数）
-- working: そのページ内で「本日出勤」が出現する回数（＝本日出勤数）
-返答形式（JSONのみ）: {"total":167,"working":25}`}]
-      })
-    });
-    if(!res.ok){const e=await res.json().catch(()=>({}));throw new Error(e.error?.message||`HTTP ${res.status}`);}
-    const data=await res.json();
-    setProg(80);
-    const text=data.content.filter(b=>b.type==='text').map(b=>b.text).join('');
-    const m=text.match(/\{\s*"total"\s*:\s*(\d+)\s*,\s*"working"\s*:\s*(\d+)\s*\}|\{\s*"working"\s*:\s*(\d+)\s*,\s*"total"\s*:\s*(\d+)\s*\}/);
-    if(!m)throw new Error('データの解析に失敗しました（APIレスポンス: '+text.slice(0,80)+'）');
-    const total=parseInt(m[1]||m[4]),working=parseInt(m[2]||m[3]);
-    if(!total)throw new Error('在籍数が0です。取得に失敗した可能性があります');
-    const today=new Date().toISOString().slice(0,10);
-    updateBMUI({date:today,total,working});
-    setProg(100);
-    // そのまま記録
-    const idx=dailyData.findIndex(x=>x.date===today);
-    const rec={date:today,total,working};
-    if(idx>=0){dailyData[idx]=rec;}else{dailyData.push(rec);}
-    dailyData.sort((a,b)=>b.date.localeCompare(a.date));
-    saveDaily();populateMonthFilter();renderDailyTable();
-    ss('dailyStatus','ok',`● ${today} を記録しました（在籍${total}名 / 出勤${working}名）`);
+    const res = await fetch(DATA_URL + '?t=' + Date.now());
+    if(!res.ok) throw new Error('HTTP ' + res.status);
+    const data = await res.json();
+    dailyData = (data.daily || []).sort((a,b)=>b.date.localeCompare(a.date));
+    castsData = (data.casts || []).sort((a,b)=>b.date.localeCompare(a.date));
+    renderAll();
+    document.getElementById('loadStatus').textContent=`● 最終更新: ${data.updated||'—'} / 在籍記録${dailyData.length}日 / 入店者${castsData.length}名`;
+    document.getElementById('hdrInfo').textContent=`在籍記録${dailyData.length}日 / 入店者${castsData.length}名`;
+    document.getElementById('fDate').textContent='loaded: '+new Date().toLocaleString('ja-JP');
   }catch(e){
-    ss('dailyStatus','err','● エラー: '+e.message);
-    setProg(0);
-  }finally{
-    btn.disabled=false;
-    btn.innerHTML=`<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg> 今日のデータを取得して記録`;
-    setTimeout(()=>setProg(0,true),2000);
+    document.getElementById('loadStatus').textContent='● 読込失敗: '+e.message;
   }
 }
 
@@ -429,10 +214,12 @@ function showTab(id){
   if(id==='casts')filtCasts();
 }
 
-function deleteDaily(date){
-  if(!confirm(`${date} のデータを削除しますか？`))return;
-  dailyData=dailyData.filter(d=>d.date!==date);saveDaily();renderDailyTable();
+function renderAll(){
+  populateMonthFilter(); renderDailyTable();
+  filtCasts();
 }
+
+// ── 日次記録 ──
 function populateMonthFilter(){
   const months=[...new Set(dailyData.map(d=>d.date.slice(0,7)))].sort().reverse();
   const sel=document.getElementById('dailyFilterMonth'),cur=sel.value;
@@ -446,41 +233,15 @@ function renderDailyTable(){
 }
 function renderDailyPage(){
   const st=(dailyPg-1)*CS,page=dailyFiltData.slice(st,st+CS);
+  if(!page.length){document.getElementById('dailyTbody').innerHTML='<tr><td colspan="5" class="loading">データなし</td></tr>';return;}
   document.getElementById('dailyTbody').innerHTML=page.map(d=>{
     const dt=new Date(d.date),dow=DOW[dt.getDay()];
     const rate=d.total&&d.working?(d.working/d.total*100).toFixed(1)+'%':'—';
     const rc=d.total&&d.working?(d.working/d.total>=0.5?'var(--gn)':d.working/d.total>=0.3?'var(--am)':'var(--rd)'):'var(--tx3)';
-    return `<tr class="fade"><td class="dt">${d.date}</td><td style="color:${[0,6].includes(dt.getDay())?'var(--rd)':'var(--tx2)'};font-size:12px">${dow}</td><td style="font-family:var(--mono)">${d.total??'—'}</td><td style="font-family:var(--mono)">${d.working??'—'}</td><td style="font-family:var(--mono);color:${rc}">${rate}</td><td style="display:flex;gap:4px"><button class="btn btn-g btn-sm" style="padding:3px 8px;font-size:11px" onclick="editDaily('${d.date}')">編集</button><button class="btn btn-rd btn-sm" style="padding:3px 8px;font-size:11px" onclick="deleteDaily('${d.date}')">削除</button></td></tr>`;
+    return `<tr class="fade"><td class="dt">${d.date}</td><td style="color:${[0,6].includes(dt.getDay())?'var(--rd)':'var(--tx2)'};font-size:12px">${dow}</td><td style="font-family:var(--mono)">${d.total??'—'}</td><td style="font-family:var(--mono)">${d.working??'—'}</td><td style="font-family:var(--mono);color:${rc}">${rate}</td></tr>`;
   }).join('');
   renderPager('dailyPager',dailyFiltData.length,dailyPg,n=>{dailyPg=n;renderDailyPage();});
 }
-
-function editDaily(date){
-  const rec=dailyData.find(d=>d.date===date);
-  if(!rec)return;
-  const t=prompt(`${date}\n在籍数を入力:`,rec.total??'');
-  if(t===null)return;
-  const w=prompt(`${date}\n出勤数を入力:`,rec.working??'');
-  if(w===null)return;
-  rec.total=t===''?null:parseInt(t);
-  rec.working=w===''?null:parseInt(w);
-  saveDaily();renderDailyTable();
-  ss('dailyStatus','ok',`● ${date} を更新しました（在籍${rec.total??'—'}名 / 出勤${rec.working??'—'}名）`);
-}
-
-// ── NF取込（入店者） ──
-function importNF(){
-  try{
-    const raw=localStorage.getItem(SK_NF);
-    if(!raw){ss('castStatus','err','● データなし。newfaceページでブックマークを押してください');return;}
-    const arr=JSON.parse(raw);
-    if(!Array.isArray(arr)||!arr.length){ss('castStatus','err','● 取得データが空です');return;}
-    const added=mergeCasts(arr);saveCasts();filtCasts();
-    localStorage.removeItem(SK_NF);
-    ss('castStatus','ok',added.length>0?`● ${added.length}件追加（累計 ${castsData.length}件）`:`● 最新です（累計 ${castsData.length}件）`);
-  }catch(e){ss('castStatus','err','● エラー: '+e.message);}
-}
-function clearCasts(){if(!confirm('入店者データを初期化しますか？'))return;localStorage.removeItem(SK_CASTS);castsData=[];mergeCasts(SEED_CASTS);saveCasts();filtCasts();ss('castStatus','info','● 初期化しました');}
 
 // ── 入店概要 ──
 function renderOverview(){
@@ -532,7 +293,6 @@ function renderOverview(){
   for(const b of bs)b.c=castsData.filter(d=>d.age>=b.mn&&d.age<b.mx).length;
   const bm2=Math.max(...bs.map(b=>b.c),1),tt=castsData.length||1;
   document.getElementById('ageGrid').innerHTML=bs.map(b=>`<div style="background:var(--bg2);border:1px solid var(--bdr);border-radius:8px;padding:.75rem 1rem;display:flex;align-items:center;gap:10px"><div style="font-family:var(--mono);font-size:12px;color:var(--tx2);width:38px;flex-shrink:0">${b.l}</div><div style="flex:1;background:var(--bg4);border-radius:3px;height:5px;overflow:hidden"><div style="height:100%;border-radius:3px;background:var(--ac);width:${Math.round(b.c/bm2*100)}%"></div></div><div style="font-family:var(--mono);font-size:12px;color:var(--tx);width:24px;text-align:right">${b.c}</div><div style="font-size:11px;color:var(--tx3);width:32px;text-align:right">${Math.round(b.c/tt*100)}%</div></div>`).join('');
-  document.getElementById('fDate').textContent='generated: '+new Date().toLocaleString('ja-JP');
 }
 
 // ── 月次レポート ──
@@ -544,7 +304,7 @@ function populateReportMonths(){
 }
 function renderReport(){
   const m=document.getElementById('reportMonth').value;
-  if(!m){document.getElementById('reportContent').innerHTML='<div style="text-align:center;padding:3rem;color:var(--tx3);font-size:13px">月を選んでください</div>';return;}
+  if(!m){document.getElementById('reportContent').innerHTML='<div class="loading">月を選んでください</div>';return;}
   const dd=dailyData.filter(d=>d.date.startsWith(m)),cd=castsData.filter(d=>d.date.startsWith(m));
   const wT=dd.filter(d=>d.total!=null),wW=dd.filter(d=>d.working!=null),wB=dd.filter(d=>d.total&&d.working);
   const avgT=wT.length?Math.round(wT.reduce((s,d)=>s+d.total,0)/wT.length):null;
@@ -567,11 +327,11 @@ function renderReport(){
       ${dowA.map(d=>`<div style="flex:1;min-width:56px;background:var(--bg3);border:1px solid var(--bdr);border-radius:8px;padding:.6rem .5rem;text-align:center"><div style="font-size:11px;color:var(--tx3);margin-bottom:3px">${d.label}</div><div style="font-family:var(--mono);font-size:18px;font-weight:500;color:${d.cnt?'var(--tx)':'var(--tx3)'}">${d.avg??'—'}</div><div style="font-size:10px;color:var(--tx3);margin-top:1px">${d.cnt}日</div></div>`).join('')}
     </div>
     ${cd.length?`<div class="sec">今月の入店者（${cd.length}名）</div><div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:1.25rem">${cd.map(d=>`<a href="${d.url||'#'}" target="_blank" rel="noopener" style="background:var(--bg3);border:1px solid var(--bdr);border-radius:6px;padding:5px 10px;font-size:12px;color:var(--tx2);display:inline-flex;flex-direction:column;align-items:center;gap:2px"><span style="color:var(--tx);font-weight:500">${d.name}</span><span style="font-size:10px">${d.age}歳</span></a>`).join('')}</div>`:''}
-    ${dd.length?`<div class="sec">日別データ</div><div class="tscroll" style="border:1px solid var(--bdr);border-radius:8px;overflow:hidden"><table><thead><tr><th>日付</th><th>曜日</th><th>在籍</th><th>出勤</th><th>出勤率</th></tr></thead><tbody>${rows}</tbody></table></div>`:'<div style="text-align:center;padding:2rem;color:var(--tx3);font-size:12px">この月の日次記録がありません</div>'}
+    ${dd.length?`<div class="sec">日別データ</div><div class="tscroll" style="border:1px solid var(--bdr);border-radius:8px;overflow:hidden"><table><thead><tr><th>日付</th><th>曜日</th><th>在籍</th><th>出勤</th><th>出勤率</th></tr></thead><tbody>${rows}</tbody></table></div>`:'<div class="loading">この月の日次記録がありません</div>'}
   `;
 }
 
-// ── 入店者テーブル ──
+// ── 入店者 ──
 function filtCasts(){
   const q=document.getElementById('castSrch').value.trim().toLowerCase(),s=document.getElementById('castSrt').value;
   filtCastsData=castsData.filter(d=>!q||d.name.toLowerCase().includes(q));
@@ -581,6 +341,7 @@ function filtCasts(){
 function renderCastPage(){
   const st=(castPg-1)*CS,page=filtCastsData.slice(st,st+CS);
   const a30=new Date(Date.now()-30*864e5).toISOString().slice(0,10);
+  if(!page.length){document.getElementById('castTbody').innerHTML='<tr><td colspan="8" class="loading">データなし</td></tr>';return;}
   document.getElementById('castTbody').innerHTML=page.map(d=>`<tr class="fade"><td class="dt">${d.date}</td><td class="nm">${d.name}${d.date>=a30?'<span class="ntag">NEW</span>':''}</td><td class="ag">${d.age}</td><td class="sp">${d.h?d.h+'cm':'—'}</td><td><span class="cup cup-${d.cup}">${d.b}(${d.cup})</span></td><td class="sp">${d.w??'—'}</td><td class="sp">${d.hip??'—'}</td><td>${d.url?`<a href="${d.url}" target="_blank" rel="noopener" style="font-size:11px;color:var(--ac2)">→ 詳細</a>`:'—'}</td></tr>`).join('');
   renderPager('castPager',filtCastsData.length,castPg,n=>{castPg=n;renderCastPage();});
 }
@@ -591,7 +352,6 @@ function exportMonthCSV(){const m=document.getElementById('reportMonth').value;i
 function exportCastCSV(){const rows=castsData.map(d=>[d.date,d.name,d.age,d.h,d.b,d.cup,d.w,d.hip,d.url||'']);dl([['入店日','名前','年齢','身長','バスト','カップ','ウエスト','ヒップ','URL'],...rows],'nishifuna_casts');}
 function dl(rows,name){const csv=rows.map(r=>r.map(v=>`"${String(v).replace(/"/g,'""')}"`).join(',')).join('\n');const a=document.createElement('a');a.href=URL.createObjectURL(new Blob(['\uFEFF'+csv],{type:'text/csv;charset=utf-8'}));a.download=`${name}_${new Date().toISOString().slice(0,10)}.csv`;a.click();}
 
-function ss(id,type,msg){document.getElementById(id).innerHTML=`<span class="${type}">${msg}</span>`;}
 function renderPager(id,total,cur,cb){
   const tot=Math.ceil(total/CS);if(tot<=1){document.getElementById(id).innerHTML='';return;}
   let h=`<button class="pg" onclick="(${cb.toString()})(${cur-1})" ${cur===1?'disabled':''}>‹</button>`;
@@ -600,12 +360,8 @@ function renderPager(id,total,cur,cb){
   document.getElementById(id).innerHTML=h;
 }
 
-(function(){
-  loadAll();
-  if(castsData.length===0){mergeCasts(SEED_CASTS);saveCasts();}
-  if(getApiKey())document.getElementById('keyBadge').style.display='inline';
-  populateMonthFilter();renderDailyTable();filtCasts();
-})();
+// 起動時にデータ読込
+loadData();
 </script>
 </body>
 </html>
