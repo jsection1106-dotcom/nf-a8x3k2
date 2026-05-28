@@ -116,7 +116,7 @@ footer{border-top:1px solid var(--bdr);padding:1rem 1.5rem;font-size:11px;color:
       </div>
       <div class="tscroll">
         <table>
-          <thead><tr><th>日付</th><th>曜日</th><th>総在籍</th><th>出勤数</th><th>出勤率</th></tr></thead>
+          <thead><tr><th>日付</th><th>曜日</th><th>総在籍</th><th>出勤数</th><th>出勤率</th><th>入店数</th></tr></thead>
           <tbody id="dailyTbody"><tr><td colspan="5" class="loading">読込中...</td></tr></tbody>
         </table>
       </div>
@@ -238,7 +238,9 @@ function renderDailyPage(){
     const dt=new Date(d.date),dow=DOW[dt.getDay()];
     const rate=d.total&&d.working?(d.working/d.total*100).toFixed(1)+'%':'—';
     const rc=d.total&&d.working?(d.working/d.total>=0.5?'var(--gn)':d.working/d.total>=0.3?'var(--am)':'var(--rd)'):'var(--tx3)';
-    return `<tr class="fade"><td class="dt">${d.date}</td><td style="color:${[0,6].includes(dt.getDay())?'var(--rd)':'var(--tx2)'};font-size:12px">${dow}</td><td style="font-family:var(--mono)">${d.total??'—'}</td><td style="font-family:var(--mono)">${d.working??'—'}</td><td style="font-family:var(--mono);color:${rc}">${rate}</td></tr>`;
+    const newCount=castsData.filter(c=>c.date===d.date).length;
+    const nc=newCount>0?`<span style="font-family:var(--mono);color:var(--gn);font-weight:500">${newCount}</span>`:'<span style="color:var(--tx3)">—</span>';
+    return `<tr class="fade"><td class="dt">${d.date}</td><td style="color:${[0,6].includes(dt.getDay())?'var(--rd)':'var(--tx2)'};font-size:12px">${dow}</td><td style="font-family:var(--mono)">${d.total??'—'}</td><td style="font-family:var(--mono)">${d.working??'—'}</td><td style="font-family:var(--mono);color:${rc}">${rate}</td><td>${nc}</td></tr>`;
   }).join('');
   renderPager('dailyPager',dailyFiltData.length,dailyPg,n=>{dailyPg=n;renderDailyPage();});
 }
@@ -347,7 +349,7 @@ function renderCastPage(){
 }
 
 // ── CSV ──
-function exportDailyCSV(){const rows=dailyData.map(d=>[d.date,DOW[new Date(d.date).getDay()],d.total??'',d.working??'',d.total&&d.working?(d.working/d.total*100).toFixed(1)+'%':'']);dl([['日付','曜日','総在籍','出勤数','出勤率'],...rows],'nishifuna_daily');}
+function exportDailyCSV(){const rows=dailyData.map(d=>[d.date,DOW[new Date(d.date).getDay()],d.total??'',d.working??'',d.total&&d.working?(d.working/d.total*100).toFixed(1)+'%':'',castsData.filter(c=>c.date===d.date).length||'']);dl([['日付','曜日','総在籍','出勤数','出勤率','入店数'],...rows],'nishifuna_daily');}
 function exportMonthCSV(){const m=document.getElementById('reportMonth').value;if(!m)return;const rows=dailyData.filter(d=>d.date.startsWith(m)).map(d=>[d.date,DOW[new Date(d.date).getDay()],d.total??'',d.working??'',d.total&&d.working?(d.working/d.total*100).toFixed(1)+'%':'']);dl([['日付','曜日','総在籍','出勤数','出勤率'],...rows],`nishifuna_${m}`);}
 function exportCastCSV(){const rows=castsData.map(d=>[d.date,d.name,d.age,d.h,d.b,d.cup,d.w,d.hip,d.url||'']);dl([['入店日','名前','年齢','身長','バスト','カップ','ウエスト','ヒップ','URL'],...rows],'nishifuna_casts');}
 function dl(rows,name){const csv=rows.map(r=>r.map(v=>`"${String(v).replace(/"/g,'""')}"`).join(',')).join('\n');const a=document.createElement('a');a.href=URL.createObjectURL(new Blob(['\uFEFF'+csv],{type:'text/csv;charset=utf-8'}));a.download=`${name}_${new Date().toISOString().slice(0,10)}.csv`;a.click();}
