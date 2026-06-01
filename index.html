@@ -179,7 +179,7 @@ footer{border-top:1px solid var(--bdr);padding:1rem 1.5rem;font-size:11px;color:
 
 <script>
 const REPO = 'jsection1106-dotcom/nf-a8x3k2';
-const DATA_URL = `https://raw.githubusercontent.com/${REPO}/main/data.json`;
+const DATA_URL = 'https://api.github.com/repos/' + REPO + '/contents/data.json';
 const DOW = ['日','月','火','水','木','金','土'];
 const CS = 20;
 
@@ -190,9 +190,17 @@ let trendChart=null, rateChart=null, cupChart=null;
 async function loadData(){
   document.getElementById('loadStatus').textContent='● データを取得中...';
   try{
-    const res = await fetch(DATA_URL + '?t=' + Date.now() + '&r=' + Math.random(), {cache: 'no-store'});
+    const res = await fetch(DATA_URL, {
+      cache: 'no-store',
+      headers: {'Accept': 'application/vnd.github.v3+json'}
+    });
     if(!res.ok) throw new Error('HTTP ' + res.status);
-    const data = await res.json();
+    const meta = await res.json();
+    const raw = meta.content.replace(/\n/g,'');
+    const bin = atob(raw);
+    const bytes = new Uint8Array(bin.length);
+    for(let i=0;i<bin.length;i++) bytes[i]=bin.charCodeAt(i);
+    const data = JSON.parse(new TextDecoder('utf-8').decode(bytes));
     dailyData = (data.daily || []).sort((a,b)=>b.date.localeCompare(a.date));
     castsData = (data.casts || []).sort((a,b)=>b.date.localeCompare(a.date));
     renderAll();
