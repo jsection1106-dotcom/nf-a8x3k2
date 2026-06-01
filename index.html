@@ -190,7 +190,7 @@ let trendChart=null, rateChart=null, cupChart=null;
 async function loadData(){
   document.getElementById('loadStatus').textContent='● データを取得中...';
   try{
-    const res = await fetch(DATA_URL + '?t=' + Date.now());
+    const res = await fetch(DATA_URL + '?t=' + Date.now() + '&r=' + Math.random(), {cache: 'no-store'});
     if(!res.ok) throw new Error('HTTP ' + res.status);
     const data = await res.json();
     dailyData = (data.daily || []).sort((a,b)=>b.date.localeCompare(a.date));
