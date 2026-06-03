@@ -173,6 +173,17 @@
   ],
   "casts": [
     {
+      "date": "2026-06-02",
+      "name": "きょうこ",
+      "age": 45,
+      "h": 161,
+      "b": 85,
+      "cup": "D",
+      "w": 57,
+      "hip": 86,
+      "url": "https://onemore-nishifuna.com/girlinfo.php?id=8269"
+    },
+    {
       "date": "2026-05-25",
       "name": "うさ",
       "age": 23,
@@ -240,17 +251,6 @@
     },
     {
       "date": "2026-04-28",
-      "name": "なほ",
-      "age": 38,
-      "h": 164,
-      "b": 92,
-      "cup": "G",
-      "w": 57,
-      "hip": 88,
-      "url": "https://onemore-nishifuna.com/girlinfo.php?id=8072"
-    },
-    {
-      "date": "2026-04-28",
       "name": "ここ",
       "age": 27,
       "h": 155,
@@ -259,6 +259,17 @@
       "w": 55,
       "hip": 84,
       "url": "https://onemore-nishifuna.com/girlinfo.php?id=8085"
+    },
+    {
+      "date": "2026-04-28",
+      "name": "なほ",
+      "age": 38,
+      "h": 164,
+      "b": 92,
+      "cup": "G",
+      "w": 57,
+      "hip": 88,
+      "url": "https://onemore-nishifuna.com/girlinfo.php?id=8072"
     },
     {
       "date": "2026-04-25",
