@@ -188,19 +188,22 @@ let trendChart=null, rateChart=null, cupChart=null;
 
 // ── データ読込（GitHub raw） ──
 async function loadData(){
-  document.getElementById('loadStatus').textContent='● データを取得中...';
+  const statusEl = document.getElementById('loadStatus');
+  statusEl.textContent='● データを取得中...';
+  const fetchURL = 'https://raw.githubusercontent.com/jsection1106-dotcom/nf-a8x3k2/main/data.json?t=' + Date.now();
   try{
-    const res = await fetch(DATA_URL + '?t=' + Date.now(), {cache: 'no-store'});
+    const res = await fetch(fetchURL, {cache: 'no-store', mode: 'cors'});
     if(!res.ok) throw new Error('HTTP ' + res.status);
     const data = await res.json();
     dailyData = (data.daily || []).sort((a,b)=>b.date.localeCompare(a.date));
     castsData = (data.casts || []).sort((a,b)=>b.date.localeCompare(a.date));
     renderAll();
-    document.getElementById('loadStatus').textContent=`● 最終更新: ${data.updated||'—'} / 在籍記録${dailyData.length}日 / 入店者${castsData.length}名`;
+    statusEl.textContent=`● 最終更新: ${data.updated||'—'} / 在籍記録${dailyData.length}日 / 入店者${castsData.length}名`;
     document.getElementById('hdrInfo').textContent=`在籍記録${dailyData.length}日 / 入店者${castsData.length}名`;
     document.getElementById('fDate').textContent='loaded: '+new Date().toLocaleString('ja-JP');
   }catch(e){
-    document.getElementById('loadStatus').textContent='● 読込失敗: '+e.message;
+    statusEl.innerHTML='<span style="color:var(--rd)">● 読込失敗: '+e.message+' — <a href="javascript:loadData()" style="color:var(--ac2)">再試行</a></span>';
+    console.error('loadData error:', e);
   }
 }
 
