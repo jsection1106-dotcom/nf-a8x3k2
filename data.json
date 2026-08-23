@@ -1,6 +1,11 @@
 {
   "daily": [
     {
+      "date": "2026-08-23",
+      "total": 148,
+      "working": 23
+    },
+    {
       "date": "2026-08-22",
       "total": 147,
       "working": 22
